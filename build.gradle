@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+test {
+    useJUnitPlatform()
+    /*useTestNG() {
+            includeGroups 'smoke', 'sanity'
+           excludeGroups 'regression'
+        }*/
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+    testCompileOnly 'junit:junit:4.13'
+    testCompile("io.github.bonigarcia:webdrivermanager:4.0.0")
+    testCompile 'com.codeborne:selenide:5.12.2'
+    compile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+}
